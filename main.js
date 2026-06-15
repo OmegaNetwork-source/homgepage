@@ -1,8 +1,8 @@
 const phrases = [
   "Enter Olympus",
-  "Claim Tokens",
-  "Defi Aggregator",
-  "The Ultimate Dapp",
+  "Trade Everything",
+  "Predict Anything",
+  "Do Everything",
 ];
 
 const el = document.getElementById("typewriter");
