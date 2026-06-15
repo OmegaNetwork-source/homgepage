@@ -1,0 +1,10 @@
+{
+  "headers": [
+    {
+      "source": "/(index.html|main.js|styles.css)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+      ]
+    }
+  ]
+}
