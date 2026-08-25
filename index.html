@@ -1,17 +1,444 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Enter Olympus</title>
-    <meta name="description" content="Enter Olympus." />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <a class="enter" href="https://olympus.omeganetwork.co">
-      <span class="typewriter" id="typewriter" aria-live="polite"></span>
-      <span class="cursor" aria-hidden="true"></span>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Olympus — Predict everything. Trade anything.</title>
+<meta name="description" content="Olympus is a DeFi dapp aggregator with a built-in Prediction DEX for tokens, NFTs, sports, collectibles, and box office.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="noise"></div>
+<div class="vignette"></div>
+
+<!-- ===== NAV ===== -->
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#top">
+      <span class="brand-mark">&#937;</span>
+      <span class="brand-name">Omega <em>Labs</em></span>
     </a>
-    <script src="main.js?v=2"></script>
-  </body>
+    <nav class="nav-links">
+      <a href="#trade">Trade</a>
+      <a href="#predict">Predict</a>
+      <button type="button" class="nav-link-btn js-claim" aria-haspopup="dialog" aria-controls="networkGate">Claim</button>
+      <a href="#hermes">Hermes</a>
+      <a href="#socials">Socials</a>
+    </nav>
+    <span class="nav-end" aria-hidden="true"></span>
+  </div>
+</header>
+
+<!-- ===== ORDER-BOOK SCROLL LADDER ===== -->
+<aside class="ladder" aria-hidden="true">
+  <div class="ladder-line"></div>
+  <ol class="ladder-list">
+    <li data-target="hero"><span class="tick"></span><em>Home</em></li>
+    <li data-target="trade"><span class="tick"></span><em>Trade</em></li>
+    <li data-target="perps"><span class="tick"></span><em>Perps</em></li>
+    <li data-target="nft"><span class="tick"></span><em>NFTs</em></li>
+    <li data-target="sports"><span class="tick"></span><em>Sports</em></li>
+    <li data-target="collectibles"><span class="tick"></span><em>Collectibles</em></li>
+    <li data-target="movies"><span class="tick"></span><em>Box Office</em></li>
+    <li data-target="rewards"><span class="tick"></span><em>Rewards</em></li>
+    <li data-target="ecosystem"><span class="tick"></span><em>Ecosystem</em></li>
+    <li data-target="hermes"><span class="tick"></span><em>Hermes</em></li>
+  </ol>
+</aside>
+
+<main id="top">
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="hero">
+    <div class="hero-bg" id="heroCanvasWrap">
+      <canvas id="heroCanvas"></canvas>
+    </div>
+
+    <div class="hero-content">
+      <p class="eyebrow reveal">DEFI DAPP AGGREGATOR &nbsp;/&nbsp; PREDICTION DEX</p>
+      <h1 class="hero-title reveal">
+        Predict everything.<br>
+        <span class="hero-title-dim">Trade anything.</span>
+      </h1>
+      <p class="hero-sub reveal">
+        Olympus brings every market onto one screen — tokens, NFTs, sports, collectibles,
+        and box office — and lets you call the next move on all of it. Guess right, earn Omega.
+      </p>
+      <div class="hero-actions reveal">
+        <button type="button" class="btn btn-solid js-launch-app" aria-haspopup="dialog" aria-controls="networkGate">Launch App</button>
+        <a href="#trade" class="btn btn-ghost">See how it works ↓</a>
+      </div>
+    </div>
+
+    <div class="hero-frame-wrap reveal">
+      <div class="glass-window hero-window" id="tiltWindow">
+        <div class="window-chrome">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          <span class="window-title">app.olympus.io — pOmega / mUSDC</span>
+        </div>
+        <img src="assets/01-home.png" alt="Olympus trading dashboard with live prediction market on pOmega / mUSDC" loading="eager">
+      </div>
+    </div>
+
+    <div class="scroll-cue" aria-hidden="true">
+      <span>Scroll to explore</span>
+      <div class="scroll-cue-line"></div>
+    </div>
+  </section>
+
+  <!-- ===== TICKER ===== -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>pOMEGA <i>▲</i> 58.4%</span>
+      <span>SOL / USDC <i>▼</i> 0.26%</span>
+      <span>MUTANT APE <i>▲</i> 0.2%</span>
+      <span>STEELERS @ BILLS <i>—</i> LIVE</span>
+      <span>BLAINE'S CHARIZARD <i>▲</i> 3.1%</span>
+      <span>SPIDER-MAN: BRAND NEW DAY <i>▲</i> 886.6%</span>
+      <span>pOMEGA <i>▲</i> 58.4%</span>
+      <span>SOL / USDC <i>▼</i> 0.26%</span>
+      <span>MUTANT APE <i>▲</i> 0.2%</span>
+      <span>STEELERS @ BILLS <i>—</i> LIVE</span>
+      <span>BLAINE'S CHARIZARD <i>▲</i> 3.1%</span>
+      <span>SPIDER-MAN: BRAND NEW DAY <i>▲</i> 886.6%</span>
+    </div>
+  </div>
+
+  <!-- ===== INTRO STRIP ===== -->
+  <section class="intro" id="predict">
+    <p class="reveal">
+      One prediction engine. <span class="dim">Five markets, and growing.</span>
+      Every screen below is the same Olympus interface — same wallet,
+      same Omega balance, same UP / DOWN call — pointed at a different corner of the internet's liquidity.
+    </p>
+  </section>
+
+  <!-- ===== 01 TRADE ===== -->
+  <section class="feature" id="trade">
+    <div class="feature-text reveal">
+      <p class="eyebrow">01 — TRADE</p>
+      <h2>Every DEX, one screen.</h2>
+      <p class="feature-copy">
+        Olympus aggregates swaps across major DEXs into a single order book, with
+        Dexscreener-grade charting, pool depth, and live token news built in — so you
+        can research, trade, and predict without ever leaving the tab.
+      </p>
+      <ul class="feature-points">
+        <li>Aggregated liquidity across chains and DEXs</li>
+        <li>Native Dexscreener charts, pool and volume analytics</li>
+        <li>Live news feed alongside every pair</li>
+      </ul>
+    </div>
+    <div class="feature-visual reveal">
+      <div class="glass-window">
+        <div class="window-chrome">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          <span class="window-title">Swap — SOL / USDC</span>
+        </div>
+        <img src="assets/02-trade.webp" alt="Olympus swap interface with SOL/USDC Dexscreener chart and analytics" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 02 PERPS ===== -->
+  <section class="feature reverse" id="perps">
+    <div class="feature-text reveal">
+      <p class="eyebrow">02 — PERPS</p>
+      <h2>Leverage, without leaving the tab.</h2>
+      <p class="feature-copy">
+        A full perpetuals venue sits right next to the spot market — live order
+        book, TradingView-grade charting, and up to 40x leverage on isolated
+        margin, quoted straight off the same feed you already trust.
+      </p>
+      <ul class="feature-points">
+        <li>Up to 40x leverage, isolated margin</li>
+        <li>Live order book with limit and market orders</li>
+        <li>TradingView charting with full indicator support</li>
+      </ul>
+    </div>
+    <div class="feature-visual reveal">
+      <a class="glass-window window-link" href="https://olympus.omeganetwork.co/aptos/perp" target="_blank" rel="noopener">
+        <div class="window-chrome">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          <span class="window-title">BTC / USDC — Perp · 40x</span>
+        </div>
+        <img src="assets/10-perps.webp" alt="Olympus perpetuals trading interface for BTC/USDC with order book and leverage controls" loading="lazy">
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== 03 NFT ===== -->
+  <section class="feature" id="nft">
+    <div class="feature-text reveal">
+      <p class="eyebrow">03 — NFT MARKETS</p>
+      <h2>Aggregated floors, real traits.</h2>
+      <p class="feature-copy">
+        Every major NFT marketplace, pulled into one feed. Browse what's actually
+        for sale, filter down to the trait you care about, and predict where the
+        floor goes next — all from the same window.
+      </p>
+      <ul class="feature-points">
+        <li>Cross-marketplace listings and floor tracking</li>
+        <li>Trait-level filtering and sorting</li>
+        <li>UP / DOWN prediction on any collection</li>
+      </ul>
+    </div>
+    <div class="feature-visual reveal">
+      <div class="glass-window">
+        <div class="window-chrome">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          <span class="window-title">Mutant Ape Yacht Club — floor</span>
+        </div>
+        <img src="assets/03-nft.webp" alt="Olympus NFT market view of Mutant Ape Yacht Club with trait filters and prediction panel" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 04 SPORTS ===== -->
+  <section class="feature reverse" id="sports">
+    <div class="feature-text reveal">
+      <p class="eyebrow">04 — SPORTS</p>
+      <h2>Roster-deep, before kickoff.</h2>
+      <p class="feature-copy">
+        Full matchup breakdowns — team stats, top players, live news — powered by
+        ESPN-grade data, sitting right next to a simple win prediction market.
+        Know the roster, then make the call.
+      </p>
+      <ul class="feature-points">
+        <li>Team and player stats for every matchup</li>
+        <li>Live scores and in-game news</li>
+        <li>Straightforward home / away win markets</li>
+      </ul>
+    </div>
+    <div class="feature-visual reveal">
+      <div class="glass-window">
+        <div class="window-chrome">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          <span class="window-title">Steelers @ Bills — Win</span>
+        </div>
+        <img src="assets/04-sports.webp" alt="Olympus sports market for Pittsburgh Steelers at Buffalo Bills with team stats and top players" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 05 COLLECTIBLES ===== -->
+  <section class="feature" id="collectibles">
+    <div class="feature-text reveal">
+      <p class="eyebrow">05 — COLLECTIBLES</p>
+      <h2>Grade it. Predict it. Rip it.</h2>
+      <p class="feature-copy">
+        Real-time pricing across raw, PSA, BGS, and CGC grades. Predict where a
+        card is headed next, or open digital packs powered by Slabz to pull
+        genuine graded collectibles straight into your binder.
+      </p>
+      <ul class="feature-points">
+        <li>Grade-by-grade pricing, raw through PSA 10</li>
+        <li>Digital pack openings powered by Slabz</li>
+        <li>UP / DOWN prediction on any card</li>
+      </ul>
+    </div>
+    <div class="feature-visual reveal">
+      <div class="glass-window">
+        <div class="window-chrome">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          <span class="window-title">Blaine's Charizard — Raw</span>
+        </div>
+        <img src="assets/05-collectibles.webp" alt="Olympus collectibles market for Blaine's Charizard with grade pricing and pack opening" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 06 MOVIES ===== -->
+  <section class="feature reverse" id="movies">
+    <div class="feature-text reveal">
+      <p class="eyebrow">06 — BOX OFFICE</p>
+      <h2>Call the opening weekend.</h2>
+      <p class="feature-copy">
+        Budget, revenue, and ROI tracked in real time for new releases, with a
+        prediction market layered on top — will it clear its number, or won't it.
+        Cast, ratings, and runtime, all on the same card.
+      </p>
+      <ul class="feature-points">
+        <li>Live budget vs. revenue and ROI tracking</li>
+        <li>Yes / No markets on box office targets</li>
+        <li>Cast, ratings, and release details at a glance</li>
+      </ul>
+    </div>
+    <div class="feature-visual reveal">
+      <div class="glass-window">
+        <div class="window-chrome">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          <span class="window-title">Spider-Man: Brand New Day — Box Office</span>
+        </div>
+        <img src="assets/06-movies.webp" alt="Olympus box office market for Spider-Man: Brand New Day with budget and revenue tracking" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 07 REWARDS ===== -->
+  <section class="feature" id="rewards">
+    <div class="feature-text reveal">
+      <p class="eyebrow">07 — REWARDS</p>
+      <h2>Try Olympus, on us.</h2>
+      <p class="feature-copy">
+        Claim Omega and a Guide NFT and take every market for a spin before you
+        ever bridge real funds. Same wallet, same balance, carried across the
+        entire ecosystem.
+      </p>
+      <ul class="feature-points">
+        <li>Claim pOmega, refreshed anytime</li>
+        <li>Mint a Guide collectible on your chain</li>
+        <li>Test every prediction market, risk-free</li>
+      </ul>
+    </div>
+    <div class="feature-visual reveal">
+      <a class="glass-window window-link" href="https://olympus.omeganetwork.co/omega/rewards" target="_blank" rel="noopener">
+        <div class="window-chrome">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          <span class="window-title">Claim — pOmega &amp; Guides</span>
+        </div>
+        <img src="assets/07-rewards.webp" alt="Olympus rewards page for claiming pOmega tokens and Guide NFTs" loading="lazy">
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== 08 ECOSYSTEM DOCK ===== -->
+  <section class="dock-section" id="ecosystem">
+    <div class="dock-text reveal">
+      <p class="eyebrow">08 — ECOSYSTEM</p>
+      <h2>Everything else, one tab away.</h2>
+      <p class="feature-copy">
+        Lending, staking, the on-chain terminal, your collectible binder, IRO
+        launches, Discord — the whole ecosystem lives in the dock under every
+        single market on Olympus.
+      </p>
+    </div>
+    <div class="dock-visual reveal">
+      <div class="glass-window dock-window">
+        <img src="assets/08-ecosystem.png" alt="Olympus DeFi lending dashboard with network picker, market size, and supply APY across assets" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 09 HERMES ===== -->
+  <section class="hermes" id="hermes">
+    <div class="hermes-text reveal">
+      <p class="eyebrow">09 — HERMES</p>
+      <h2>Olympus, in your pocket.</h2>
+      <p class="feature-copy">
+        Hermes is the mobile side of Olympus, distilled to one conversation.
+        Ask for a price, pull up a chart, predict, or swap — without ever
+        leaving the chat.
+      </p>
+      <ul class="feature-points">
+        <li>Ask in plain language, get live market data back</li>
+        <li>Predict or swap directly inside the chat</li>
+        <li>Built for one thumb, start to finish</li>
+      </ul>
+      <a href="https://olympus.omeganetwork.co/hermes" target="_blank" rel="noopener" class="btn btn-ghost">Open full Hermes ↗</a>
+    </div>
+    <div class="hermes-visual reveal">
+      <div class="phone-frame hermes-phone" id="hermesPhone">
+        <div class="phone-notch" aria-hidden="true"></div>
+        <img class="hermes-poster" id="hermesPoster" src="assets/09-hermes.webp" alt="Hermes chat preview" width="360" height="720">
+        <iframe class="hermes-embed" id="hermesEmbed" title="Try Hermes" data-src="https://olympus.omeganetwork.co/hermes" allow="clipboard-write" loading="lazy"></iframe>
+        <div class="hermes-try-wrap" id="hermesTryWrap">
+          <button type="button" class="btn btn-solid hermes-try" id="hermesTry">Try Hermes here</button>
+        </div>
+        <a class="hermes-blocked" id="hermesBlocked" href="https://olympus.omeganetwork.co/hermes" target="_blank" rel="noopener" hidden>Open Hermes ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FINAL CTA ===== -->
+  <section class="final-cta" id="launch">
+    <p class="eyebrow reveal">READY WHEN YOU ARE</p>
+    <h2 class="reveal">Make the call.</h2>
+    <p class="reveal final-sub">Tokens, NFTs, sports, collectibles, box office — the market's open on all of it.</p>
+    <button type="button" class="btn btn-solid btn-large reveal js-launch-app" aria-haspopup="dialog" aria-controls="networkGate">Launch Olympus</button>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <a class="footer-brand" href="#top" aria-label="Omega">
+      <span class="brand-mark" aria-hidden="true">&#937;</span>
+    </a>
+    <nav class="footer-socials" id="socials" aria-label="Socials and legal">
+      <a href="https://x.com/omega_netw0rk" target="_blank" rel="noopener noreferrer">X</a>
+      <a href="https://discord.gg/omeganetwork" target="_blank" rel="noopener noreferrer">Discord</a>
+      <a href="https://olympus.omeganetwork.co/docs" target="_blank" rel="noopener noreferrer">Docs</a>
+      <a href="https://olympus.omeganetwork.co/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+      <a href="https://olympus.omeganetwork.co/terms-of-use" target="_blank" rel="noopener noreferrer">Terms of Use</a>
+    </nav>
+    <p class="footer-fine">Olympus is a self-custody dapp aggregator. Prediction DEX carries risk — you can lose your stake.</p>
+  </div>
+</footer>
+
+<dialog class="network-gate" id="networkGate" aria-labelledby="networkGateTitle">
+  <button type="button" class="network-gate-close" id="networkGateClose" aria-label="Close network picker">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <div class="network-gate-inner">
+    <p class="eyebrow" id="networkGateEyebrow">Olympus App</p>
+    <h2 id="networkGateTitle">Select a network</h2>
+    <p class="network-gate-sub" id="networkGateSub">Claim pOmega and a Guide on the chain you want.</p>
+    <div class="network-grid">
+      <a class="network-card" href="https://olympus.omeganetwork.co/liteforge/rewards" data-slug="liteforge" data-network="Liteforge">
+        <span class="network-ticker">LTF</span>
+        <span class="network-name">Liteforge</span>
+        <span class="network-go">Claim</span>
+      </a>
+      <a class="network-card" href="https://olympus.omeganetwork.co/aptos/rewards" data-slug="aptos" data-network="Aptos">
+        <span class="network-ticker">APT</span>
+        <span class="network-name">Aptos</span>
+        <span class="network-go">Claim</span>
+      </a>
+      <a class="network-card" href="https://olympus.omeganetwork.co/solana/rewards" data-slug="solana" data-network="Solana">
+        <span class="network-ticker">SOL</span>
+        <span class="network-name">Solana</span>
+        <span class="network-go">Claim</span>
+      </a>
+      <a class="network-card" href="https://olympus.omeganetwork.co/avax/rewards" data-slug="avax" data-network="Avax">
+        <span class="network-ticker">AVAX</span>
+        <span class="network-name">Avax</span>
+        <span class="network-go">Claim</span>
+      </a>
+      <a class="network-card" href="https://olympus.omeganetwork.co/ton/rewards" data-slug="ton" data-network="TON">
+        <span class="network-ticker">TON</span>
+        <span class="network-name">TON</span>
+        <span class="network-go">Claim</span>
+      </a>
+      <a class="network-card" href="https://olympus.omeganetwork.co/cardano/rewards" data-slug="cardano" data-network="Cardano">
+        <span class="network-ticker">ADA</span>
+        <span class="network-name">Cardano</span>
+        <span class="network-go">Claim</span>
+      </a>
+      <a class="network-card" href="https://olympus.omeganetwork.co/ethereum/rewards" data-slug="ethereum" data-network="Ethereum">
+        <span class="network-ticker">ETH</span>
+        <span class="network-name">Ethereum</span>
+        <span class="network-go">Claim</span>
+      </a>
+      <a class="network-card" href="https://olympus.omeganetwork.co/bsc/rewards" data-slug="bsc" data-network="BSC">
+        <span class="network-ticker">BSC</span>
+        <span class="network-name">BSC</span>
+        <span class="network-go">Claim</span>
+      </a>
+      <a class="network-card" href="https://olympus.omeganetwork.co/ink/rewards" data-slug="ink" data-network="Ink">
+        <span class="network-ticker">INK</span>
+        <span class="network-name">Ink</span>
+        <span class="network-go">Claim</span>
+      </a>
+    </div>
+    <p class="network-gate-status" id="networkGateStatus" role="status" aria-live="polite"></p>
+  </div>
+</dialog>
+
+<script src="script.js"></script>
+</body>
 </html>
