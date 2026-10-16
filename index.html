@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Olympus — Predict everything. Trade anything.</title>
-<meta name="description" content="Olympus is a DeFi dapp aggregator with a built-in Prediction DEX for tokens, NFTs, sports, collectibles, and box office.">
+<title>Hermes — Olympus in your pocket.</title>
+<meta name="description" content="Hermes is the mobile side of Olympus. Ask, predict, and swap in one conversation — less time, less noise, same wallet.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -23,11 +23,11 @@
       <span class="brand-name">Omega <em>Labs</em></span>
     </a>
     <nav class="nav-links">
-      <a href="#trade">Trade</a>
-      <a href="#predict">Predict</a>
-      <button type="button" class="nav-link-btn js-claim" aria-haspopup="dialog" aria-controls="networkGate">Claim</button>
       <a href="#hermes">Hermes</a>
-      <a href="#socials">Socials</a>
+      <a href="#trade">Olympus</a>
+      <button type="button" class="nav-link-btn js-claim" aria-haspopup="dialog" aria-controls="networkGate">Claim</button>
+      <a href="#roadmap">Roadmap</a>
+      <a href="#team">Team</a>
     </nav>
     <span class="nav-end" aria-hidden="true"></span>
   </div>
@@ -38,6 +38,7 @@
   <div class="ladder-line"></div>
   <ol class="ladder-list">
     <li data-target="hero"><span class="tick"></span><em>Home</em></li>
+    <li data-target="hermes"><span class="tick"></span><em>Hermes</em></li>
     <li data-target="trade"><span class="tick"></span><em>Trade</em></li>
     <li data-target="perps"><span class="tick"></span><em>Perps</em></li>
     <li data-target="nft"><span class="tick"></span><em>NFTs</em></li>
@@ -46,7 +47,8 @@
     <li data-target="movies"><span class="tick"></span><em>Box Office</em></li>
     <li data-target="rewards"><span class="tick"></span><em>Rewards</em></li>
     <li data-target="ecosystem"><span class="tick"></span><em>Ecosystem</em></li>
-    <li data-target="hermes"><span class="tick"></span><em>Hermes</em></li>
+    <li data-target="roadmap"><span class="tick"></span><em>Roadmap</em></li>
+    <li data-target="team"><span class="tick"></span><em>Team</em></li>
   </ol>
 </aside>
 
@@ -58,29 +60,40 @@
       <canvas id="heroCanvas"></canvas>
     </div>
 
-    <div class="hero-content">
-      <p class="eyebrow reveal">DEFI DAPP AGGREGATOR &nbsp;/&nbsp; PREDICTION DEX</p>
-      <h1 class="hero-title reveal">
-        Predict everything.<br>
-        <span class="hero-title-dim">Trade anything.</span>
-      </h1>
-      <p class="hero-sub reveal">
-        Olympus brings every market onto one screen — tokens, NFTs, sports, collectibles,
-        and box office — and lets you call the next move on all of it. Guess right, earn Omega.
-      </p>
-      <div class="hero-actions reveal">
-        <button type="button" class="btn btn-solid js-launch-app" aria-haspopup="dialog" aria-controls="networkGate">Launch App</button>
-        <a href="#trade" class="btn btn-ghost">See how it works ↓</a>
-      </div>
-    </div>
-
-    <div class="hero-frame-wrap reveal">
-      <div class="glass-window hero-window" id="tiltWindow">
-        <div class="window-chrome">
-          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-          <span class="window-title">app.olympus.io — pOmega / mUSDC</span>
+    <div class="hero-stage">
+      <div class="hero-frame-wrap hero-phone-wrap reveal" id="hermes">
+        <div class="phone-frame hermes-phone" id="hermesPhone">
+          <div class="phone-notch" aria-hidden="true"></div>
+          <img class="hermes-poster" id="hermesPoster" src="assets/09-hermes.webp" alt="Hermes chat preview" width="360" height="720">
+          <iframe class="hermes-embed" id="hermesEmbed" title="Try Hermes" data-src="https://olympus.omeganetwork.co/hermes" allow="clipboard-write" loading="lazy"></iframe>
+          <div class="hermes-try-wrap" id="hermesTryWrap">
+            <button type="button" class="btn btn-solid hermes-try js-hermes-try" id="hermesTry">Try Hermes here</button>
+          </div>
+          <a class="hermes-blocked" id="hermesBlocked" href="https://olympus.omeganetwork.co/hermes" target="_blank" rel="noopener" hidden>Open Hermes ↗</a>
         </div>
-        <img src="assets/01-home.png" alt="Olympus trading dashboard with live prediction market on pOmega / mUSDC" loading="eager">
+      </div>
+
+      <div class="hero-content">
+        <p class="eyebrow reveal">HERMES &nbsp;/&nbsp; MOBILE OLYMPUS</p>
+        <h1 class="hero-title reveal">
+          Hermes, in your pocket.
+        </h1>
+        <p class="hero-kicker reveal">Ask once. Done.</p>
+        <p class="hero-rotator reveal" aria-live="polite">
+          <span class="hero-rotator-lead">Save</span>
+          <span class="hero-rotator-viewport">
+            <span class="hero-rotator-word is-in">time.</span>
+            <span class="hero-rotator-word">costs.</span>
+            <span class="hero-rotator-word">headaches.</span>
+          </span>
+        </p>
+        <p class="hero-sub reveal">
+          One conversation instead of a dozen tabs. Same wallet, same Omega.
+        </p>
+        <div class="hero-actions reveal">
+          <button type="button" class="btn btn-solid js-hermes-try">Try Hermes</button>
+          <a href="#trade" class="btn btn-ghost">See Olympus ↓</a>
+        </div>
       </div>
     </div>
 
@@ -111,10 +124,37 @@
   <!-- ===== INTRO STRIP ===== -->
   <section class="intro" id="predict">
     <p class="reveal">
-      One prediction engine. <span class="dim">Five markets, and growing.</span>
-      Every screen below is the same Olympus interface — same wallet,
-      same Omega balance, same UP / DOWN call — pointed at a different corner of the internet's liquidity.
+      Chat instead of clicking through five screens. <span class="dim">Hermes saves the hops —</span>
+      time, money, and the tab pile. Underneath it is still Olympus: every market, one wallet, one Omega balance.
     </p>
+  </section>
+
+  <!-- ===== HERMES + OLYMPUS ===== -->
+  <section class="hermes">
+    <div class="hermes-text reveal">
+      <p class="eyebrow">HERMES</p>
+      <h2>One chat. The whole stack.</h2>
+      <p class="feature-copy">
+        Stop hopping wallets, tabs, and bridges for a simple call. Hermes
+        compresses Olympus into a conversation — so you spend less time
+        clicking and less money on the trip there. Want the full screen? That’s Olympus, still one tab away.
+      </p>
+      <ul class="feature-points">
+        <li>Ask in plain language, get live market data back</li>
+        <li>Predict or swap without leaving the chat</li>
+        <li>Same wallet, same Omega — fewer steps, fewer fees</li>
+      </ul>
+      <a href="https://olympus.omeganetwork.co/hermes" target="_blank" rel="noopener" class="btn btn-ghost">Open full Hermes ↗</a>
+    </div>
+    <div class="hermes-visual reveal">
+      <div class="glass-window">
+        <div class="window-chrome">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          <span class="window-title">olympus — full stack</span>
+        </div>
+        <img src="assets/01-home.png" alt="Olympus trading dashboard with live prediction market on pOmega / mUSDC" loading="lazy">
+      </div>
+    </div>
   </section>
 
   <!-- ===== 01 TRADE ===== -->
@@ -123,9 +163,9 @@
       <p class="eyebrow">01 — TRADE</p>
       <h2>Every DEX, one screen.</h2>
       <p class="feature-copy">
-        Olympus aggregates swaps across major DEXs into a single order book, with
-        Dexscreener-grade charting, pool depth, and live token news built in — so you
-        can research, trade, and predict without ever leaving the tab.
+        Olympus aggregates swaps across major DEXs into a single order book.
+        Hermes can fire the same trade from chat — Dexscreener-grade charts
+        and pool depth when you want the full screen, one prompt when you don't.
       </p>
       <ul class="feature-points">
         <li>Aggregated liquidity across chains and DEXs</li>
@@ -285,9 +325,8 @@
       <p class="eyebrow">07 — REWARDS</p>
       <h2>Try Olympus, on us.</h2>
       <p class="feature-copy">
-        Claim Omega and a Guide NFT and take every market for a spin before you
-        ever bridge real funds. Same wallet, same balance, carried across the
-        entire ecosystem.
+        Claim Omega and a Guide NFT and take Hermes — and every Olympus market —
+        for a spin before you ever bridge real funds. Same wallet, same balance.
       </p>
       <ul class="feature-points">
         <li>Claim pOmega, refreshed anytime</li>
@@ -324,42 +363,95 @@
     </div>
   </section>
 
-  <!-- ===== 09 HERMES ===== -->
-  <section class="hermes" id="hermes">
-    <div class="hermes-text reveal">
-      <p class="eyebrow">09 — HERMES</p>
-      <h2>Olympus, in your pocket.</h2>
-      <p class="feature-copy">
-        Hermes is the mobile side of Olympus, distilled to one conversation.
-        Ask for a price, pull up a chart, predict, or swap — without ever
-        leaving the chat.
-      </p>
-      <ul class="feature-points">
-        <li>Ask in plain language, get live market data back</li>
-        <li>Predict or swap directly inside the chat</li>
-        <li>Built for one thumb, start to finish</li>
-      </ul>
-      <a href="https://olympus.omeganetwork.co/hermes" target="_blank" rel="noopener" class="btn btn-ghost">Open full Hermes ↗</a>
+  <!-- ===== ROADMAP ===== -->
+  <section class="roadmap" id="roadmap">
+    <div class="roadmap-head reveal">
+      <p class="eyebrow">ROADMAP</p>
+      <h2>From beta to TGE.</h2>
+      <p class="feature-copy">Hermes first. Olympus underneath. Dates are targets, not promises.</p>
     </div>
-    <div class="hermes-visual reveal">
-      <div class="phone-frame hermes-phone" id="hermesPhone">
-        <div class="phone-notch" aria-hidden="true"></div>
-        <img class="hermes-poster" id="hermesPoster" src="assets/09-hermes.webp" alt="Hermes chat preview" width="360" height="720">
-        <iframe class="hermes-embed" id="hermesEmbed" title="Try Hermes" data-src="https://olympus.omeganetwork.co/hermes" allow="clipboard-write" loading="lazy"></iframe>
-        <div class="hermes-try-wrap" id="hermesTryWrap">
-          <button type="button" class="btn btn-solid hermes-try" id="hermesTry">Try Hermes here</button>
+    <ol class="roadmap-grid">
+      <li class="roadmap-phase reveal">
+        <p class="roadmap-when">Q3 2026 — Q1 2027</p>
+        <h3>Beta testing</h3>
+        <ul>
+          <li>Closed Hermes beta and waitlist</li>
+          <li>Chat: spot, predict, wallet connect</li>
+          <li>pOmega claims and Guide mints</li>
+          <li>Core chain coverage in testing</li>
+        </ul>
+      </li>
+      <li class="roadmap-phase reveal">
+        <p class="roadmap-when">Q2 2027</p>
+        <h3>Mainnet launch</h3>
+        <ul>
+          <li>Public Hermes and Olympus access</li>
+          <li>Perps, NFTs, sports, collectibles live</li>
+          <li>Independent security audits</li>
+          <li>Multi-chain expansion</li>
+        </ul>
+      </li>
+      <li class="roadmap-phase reveal">
+        <p class="roadmap-when">Q3 2027</p>
+        <h3>TGE</h3>
+        <ul>
+          <li>Token generation event</li>
+          <li>Staking and protocol rewards</li>
+          <li>Governance kickoff</li>
+          <li>Ecosystem partners and grants</li>
+        </ul>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ===== TEAM ===== -->
+  <section class="team" id="team">
+    <div class="team-head reveal">
+      <p class="eyebrow">TEAM</p>
+      <h2>The people shipping it.</h2>
+    </div>
+    <div class="team-grid">
+      <article class="team-card reveal">
+        <div class="team-photo">
+          <img src="assets/team-richard.jpg" alt="Richard, CEO">
         </div>
-        <a class="hermes-blocked" id="hermesBlocked" href="https://olympus.omeganetwork.co/hermes" target="_blank" rel="noopener" hidden>Open Hermes ↗</a>
-      </div>
+        <h3>Richard</h3>
+        <p class="team-role">CEO</p>
+        <p class="team-blurb">US Air Force veteran with a background in cybersecurity and large-scale infrastructure — including managing millions of dollars in critical systems. He brings that operational discipline, leadership, and years of blockchain experience to Omega as CEO.</p>
+      </article>
+      <article class="team-card reveal">
+        <div class="team-photo">
+          <img src="assets/team-ian.png" alt="Ian, COO">
+        </div>
+        <h3>Ian</h3>
+        <p class="team-role">COO</p>
+        <p class="team-blurb">Sales and operations leader focused on turning strategy into results. Ian drives commercial growth and operational excellence — building the systems, relationships, and day-to-day discipline that let Omega scale without losing the plot.</p>
+      </article>
+      <article class="team-card reveal">
+        <div class="team-photo">
+          <img src="assets/team-george.jpg" alt="George, CTO">
+        </div>
+        <h3>George</h3>
+        <p class="team-role">CTO</p>
+        <p class="team-blurb">Business Development and Partnerships professional who transitioned from the hospitality industry into Web3 and technology, bringing a unique blend of people-focused experience, entrepreneurship, and strategic thinking. With a passion for innovation and business growth, he specializes in building partnerships, expanding markets, and connecting people and businesses to create meaningful opportunities and long-term value.</p>
+      </article>
+      <article class="team-card reveal">
+        <div class="team-photo">
+          <img src="assets/team-jesse.jpg" alt="Jesse, Advisor">
+        </div>
+        <h3>Jesse</h3>
+        <p class="team-role">Advisor</p>
+        <p class="team-blurb">Jesse Brown is the owner-operator of Native Cafe, where he has built and scaled a successful hospitality business focused on quality and customer experience. As an advisor to Omega Network, he contributes practical entrepreneurial insight to support growth in the crypto and blockchain space.</p>
+      </article>
     </div>
   </section>
 
   <!-- ===== FINAL CTA ===== -->
   <section class="final-cta" id="launch">
     <p class="eyebrow reveal">READY WHEN YOU ARE</p>
-    <h2 class="reveal">Make the call.</h2>
-    <p class="reveal final-sub">Tokens, NFTs, sports, collectibles, box office — the market's open on all of it.</p>
-    <button type="button" class="btn btn-solid btn-large reveal js-launch-app" aria-haspopup="dialog" aria-controls="networkGate">Launch Olympus</button>
+    <h2 class="reveal">Just ask Hermes.</h2>
+    <p class="reveal final-sub">Hermes in your pocket — tokens, NFTs, sports, collectibles, box office.</p>
+    <a href="#hermes" class="btn btn-solid btn-large reveal">Try Hermes</a>
   </section>
 
 </main>
@@ -376,7 +468,7 @@
       <a href="https://olympus.omeganetwork.co/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
       <a href="https://olympus.omeganetwork.co/terms-of-use" target="_blank" rel="noopener noreferrer">Terms of Use</a>
     </nav>
-    <p class="footer-fine">Olympus is a self-custody dapp aggregator. Prediction DEX carries risk — you can lose your stake.</p>
+    <p class="footer-fine">Hermes is the mobile side of Olympus, a self-custody dapp aggregator. Prediction DEX carries risk — you can lose your stake.</p>
   </div>
 </footer>
 

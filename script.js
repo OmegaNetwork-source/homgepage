@@ -52,6 +52,22 @@
     sections.forEach((s) => spy.observe(s));
   }
 
+  /* ---------- hero save-line rotator ---------- */
+  const rotatorWords = document.querySelectorAll('.hero-rotator-word');
+  if (rotatorWords.length && !reduceMotion) {
+    let rotatorIndex = 0;
+    setInterval(() => {
+      const current = rotatorWords[rotatorIndex];
+      const next = rotatorWords[(rotatorIndex + 1) % rotatorWords.length];
+      current.classList.remove('is-in');
+      current.classList.add('is-out');
+      next.classList.remove('is-out');
+      next.classList.add('is-in');
+      rotatorIndex = (rotatorIndex + 1) % rotatorWords.length;
+      window.setTimeout(() => current.classList.remove('is-out'), 600);
+    }, 2400);
+  }
+
   /* ---------- hero window tilt ---------- */
   const tiltWindow = document.getElementById('tiltWindow');
   const heroSection = document.querySelector('.hero');
@@ -274,14 +290,16 @@
   /* ---------- live Hermes phone embed ---------- */
   const hermesPhone = document.getElementById('hermesPhone');
   const hermesEmbed = document.getElementById('hermesEmbed');
-  const hermesTry = document.getElementById('hermesTry');
+  const hermesTryBtns = document.querySelectorAll('.js-hermes-try');
   const hermesBlocked = document.getElementById('hermesBlocked');
   const HERMES_URL = 'https://olympus.omeganetwork.co/hermes';
 
   function startHermes() {
-    if (!hermesPhone || !hermesEmbed || hermesPhone.classList.contains('is-loading') || hermesPhone.classList.contains('is-live')) return;
+    if (!hermesPhone || !hermesEmbed) return;
+    hermesPhone.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'center' });
+    if (hermesPhone.classList.contains('is-loading') || hermesPhone.classList.contains('is-live')) return;
     hermesPhone.classList.add('is-loading');
-    if (hermesTry) hermesTry.textContent = 'Loading Hermes…';
+    hermesTryBtns.forEach((btn) => { btn.textContent = 'Loading Hermes…'; });
     hermesEmbed.src = hermesEmbed.dataset.src || HERMES_URL;
     let settled = false;
     const succeed = () => {
@@ -289,12 +307,15 @@
       settled = true;
       hermesPhone.classList.remove('is-loading');
       hermesPhone.classList.add('is-live');
+      hermesTryBtns.forEach((btn) => {
+        if (!btn.closest('.hermes-try-wrap')) btn.textContent = 'Try Hermes';
+      });
     };
     const fail = () => {
       if (settled) return;
       settled = true;
       hermesPhone.classList.remove('is-loading');
-      if (hermesTry) hermesTry.hidden = true;
+      hermesTryBtns.forEach((btn) => { btn.hidden = true; });
       if (hermesBlocked) hermesBlocked.hidden = false;
     };
     hermesEmbed.addEventListener('load', () => {
@@ -315,5 +336,5 @@
     }, 8000);
   }
 
-  if (hermesTry) hermesTry.addEventListener('click', startHermes);
+  hermesTryBtns.forEach((btn) => btn.addEventListener('click', startHermes));
 })();
